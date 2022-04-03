@@ -8,8 +8,8 @@ const canvas = document.getElementById("the-ocean");
 const ctx = canvas.getContext("2d");
 canvas.width = 500;
 canvas.height = 500;
-canvas.width = w;
-canvas.height = h;
+let w = canvas.width;
+let h = canvas.height;
 
 class Player {
   constructor() {
