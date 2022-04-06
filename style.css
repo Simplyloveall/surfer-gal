@@ -1,49 +1,46 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 h1 {
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-}
-
-canvas {
-    border: 1px solid blue
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
 }
 
 * {
-    box-sizing: border-box;
-  }
-  
+  box-sizing: border-box;
+}
+
 .column {
-    float: left;
-    padding: 10px;
-  }
-  
-  .left {
-    width: 25%;
-    height: 600px;
-    background-image: url(/images/camper-van-left.png);
-    background-size: cover;
+  float: left;
+}
 
-  }
+.left {
+  width: 20%;
+  height: 500px;
+  margin-top: -2px;
+  background-image: url(/images/camper-van-left.png);
+  background-size: cover;
+}
 .right {
-    width: 25%;
-    height: 600px;
-    background-image: url(/images/camper-van-right.png);
-    background-size: cover;
-  }
+  width: 20%;
+  height: 500px;
+  background-image: url(/images/camper-van-right.png);
+  background-size: cover;
+}
 
-  
 .middle {
-    width: 50%;
-    height: 600px;
-    border: 2px solid yellow;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+  width: 60%;
+  height: 500px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#ocean {
+  border: 1px solid blue
+}
