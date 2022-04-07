@@ -1,3 +1,10 @@
+const splash = document.querySelector(".splash");
+document.addEventListener("DOMContentLoaded", (e) => {
+  setTimeout(() => {
+    splash.classList.add("display-none");
+  }, 5000);
+});
+
 let time = 1000;
 let countDown = setInterval(timer, 1000);
 
@@ -16,16 +23,16 @@ canvas.height = 500;
 let w = canvas.width;
 let h = canvas.height;
 
-ctx.fillStyle = "#64ABE3";
+ctx.fillStyle = "rgb(54, 38, 38)";
 ctx.fillRect(0, 0, w, h);
 ctx.fillStyle = "#F9D199";
 ctx.font = "50px sans-serif";
-ctx.fillText("Click to Play", 200, 250);
+ctx.fillText("Click to Play", 250, 250);
 ctx.font = "24px sans-serif";
-ctx.fillStyle = "brown";
-ctx.fillText("save as many items as you can, move with arrow keys", 20, 50);
-ctx.fillText("avoid contact with boats", 20, 100);
-ctx.fillText("no remedy if eaten by a shark", 20, 150);
+ctx.fillStyle = "white";
+ctx.fillText("move with arrow keys", 250, 50);
+ctx.fillText("avoid contact with boats", 250, 100);
+ctx.fillText("definitely avoid sharks", 250, 150);
 
 class Player {
   constructor() {
@@ -189,17 +196,18 @@ let int3;
 
 function startGame() {
   if (gameOn === false) {
-    let int1 = setInterval(function () {
+    int1 = setInterval(function () {
       imgArr = [penImg, octImg, coralImg, fwoodImg];
       let randomImg = imgArr[Math.floor(Math.random() * imgArr.length)];
       obstacleArr.push(new Object(randomImg));
     }, 1000);
-
-    let int2 = setInterval(function () {
+    player1.score = 0;
+    time = 1000;
+    int2 = setInterval(function () {
       sharkArr.push(new Shark(sharkImg));
     }, 8000);
 
-    let int3 = setInterval(function () {
+    int3 = setInterval(function () {
       boatArr.push(new Boat(pshipImg));
     }, 9000);
     updateCanvas();
@@ -276,7 +284,7 @@ function updateCanvas() {
   }
 
   ctx.font = "20px goudy stout";
-  ctx.fillText(`Score = ${player1.score}`, 40, 30);
+  ctx.fillText(`Score = ${player1.score}`, 80, 30);
 }
 
 function gameOver() {
