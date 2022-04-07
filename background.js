@@ -1,13 +1,14 @@
 // const c = document.getElementById("ocean").getContext("2d");
 
-// // c.beginPath();
-// // c.lineWidth = 3;
-// // c.arc(100, 140, 60, Math.PI * 0.5, Math.PI);
-// c.arcTo(, 140, 60, Math.PI * 0.5, Math.PI);
-// // // c.arcTo(50, 50, 60, 70, 40);
+// // // c.beginPath();
+// // // c.lineWidth = 3;
+// // // c.arc(100, 140, 60, Math.PI * 0.5, Math.PI);
+// // c.arcTo(, 140, 60, Math.PI * 0.5, Math.PI);
+// // // // c.arcTo(50, 50, 60, 70, 40);
 
 // // c.stroke();
 // // c.closePath();
+
 // (cw = c.width = window.innerWidth),
 //   (ch = c.height = window.innerHeight),
 //   (points = []),
@@ -35,9 +36,9 @@
 //     return (-c / 2) * (--t * (t - 2) - 1) + b;
 //   });
 
-// ctx.lineJoin = "round";
-// ctx.lineWidth = opt.thickness;
-// ctx.strokeStyle = opt.strokeColor;
+// c.lineJoin = "round";
+// c.lineWidth = opt.thickness;
+// c.strokeStyle = opt.strokeColor;
 
 // var Point = function (config) {
 //   this.anchorX = config.x;
@@ -80,10 +81,10 @@
 // };
 
 // Point.prototype.render = function () {
-//   ctx.beginPath();
-//   ctx.arc(this.x, this.y, 3, 0, Math.PI * 2, false);
-//   ctx.fillStyle = "#000";
-//   ctx.fill();
+//   c.beginPath();
+//   c.arc(this.x, this.y, 3, 0, Math.PI * 2, false);
+//   c.fillStyle = "#000";
+//   c.fill();
 // };
 
 // var updatePoints = function () {
@@ -101,25 +102,25 @@
 // };
 
 // var renderShape = function () {
-//   ctx.beginPath();
+//   c.beginPath();
 //   var pointCount = points.length;
-//   ctx.moveTo(points[0].x, points[0].y);
+//   c.moveTo(points[0].x, points[0].y);
 //   var i;
 //   for (i = 0; i < pointCount - 1; i++) {
 //     var c = (points[i].x + points[i + 1].x) / 2;
 //     var d = (points[i].y + points[i + 1].y) / 2;
-//     ctx.quadraticCurveTo(points[i].x, points[i].y, c, d);
+//     c.quadraticCurveTo(points[i].x, points[i].y, c, d);
 //   }
-//   ctx.lineTo(-opt.range.x - opt.thickness, ch + opt.thickness);
-//   ctx.lineTo(cw + opt.range.x + opt.thickness, ch + opt.thickness);
-//   ctx.closePath();
-//   ctx.fillStyle = "hsl(" + tick / 2 + ", 80%, 60%)";
-//   ctx.fill();
-//   ctx.stroke();
+//   c.lineTo(-opt.range.x - opt.thickness, ch + opt.thickness);
+//   c.lineTo(cw + opt.range.x + opt.thickness, ch + opt.thickness);
+//   c.closePath();
+//   c.fillStyle = "hsl(" + tick / 2 + ", 80%, 60%)";
+//   c.fill();
+//   c.stroke();
 // };
 
 // var clear = function () {
-//   ctx.clearRect(0, 0, cw, ch);
+//   c.clearRect(0, 0, cw, ch);
 // };
 
 // var loop = function () {

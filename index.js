@@ -11,7 +11,7 @@ function timer() {
 const canvas = document.getElementById("play-area");
 canvas.addEventListener("click", startGame);
 const ctx = canvas.getContext("2d");
-canvas.width = 760;
+canvas.width = 770;
 canvas.height = 500;
 let w = canvas.width;
 let h = canvas.height;

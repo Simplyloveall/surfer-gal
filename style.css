@@ -11,6 +11,22 @@ h1 {
   box-sizing: border-box;
 }
 
+#play-area {
+  z-index: 1;
+  position: fixed;
+}
+#ocean {
+  z-index: -1;
+  position: fixed;
+  background-color: aqua;
+}
+p {
+  display: flex;
+  align-items: right;
+  justify-content: flex-end;
+  color: rgb(60, 240, 240);
+}
+
 .column {
   float: left;
 }
@@ -41,6 +57,4 @@ h1 {
   clear: both;
 }
 
-#ocean {
-  border: 1px solid blue
-}
+
