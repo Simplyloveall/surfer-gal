@@ -19,13 +19,13 @@ h1 {
   width: 20%;
   height: 500px;
   margin-top: -2px;
-  background-image: url(/images/camper-van-left.png);
+  background-image: url(images/camper-van-left.png);
   background-size: cover;
 }
 .right {
   width: 20%;
   height: 500px;
-  background-image: url(/images/camper-van-right.png);
+  background-image: url(images/camper-van-right.png);
   background-size: cover;
 }
 
