@@ -27,7 +27,7 @@ ctx.fillStyle = "rgb(54, 38, 38)";
 ctx.fillRect(0, 0, w, h);
 ctx.fillStyle = "#F9D199";
 ctx.font = "50px sans-serif";
-ctx.fillText("Click to Play", 250, 250);
+ctx.fillText("Click to Play", 230, 250);
 ctx.font = "24px sans-serif";
 ctx.fillStyle = "white";
 ctx.fillText("move with arrow keys", 250, 50);
