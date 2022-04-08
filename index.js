@@ -12,6 +12,9 @@ function timer() {
   time -= 20;
   if (time === 0) {
     gameOver();
+    ctx.font = "20px goudy stout";
+    ctx.fillText(`Score = ${player1.score}`, 80, 30);
+    // altGameOverSound.play();
   }
 }
 
@@ -40,6 +43,8 @@ let hitBoatSound = new Audio("images/hit_boat.wav");
 hitBoatSound.volume = 0.2;
 let gameOverSound = new Audio("images/game_over.wav");
 gameOverSound.volume = 0.5;
+// let altGameOverSound = new Audio("images/start-game.wav");
+// altgameOverSound.volume = 0.5;
 
 class Player {
   constructor() {
@@ -304,9 +309,9 @@ function gameOver() {
   clearInterval(int2);
   clearInterval(int3);
   clearInterval(countDown);
-  ctx.fillStyle = "#64ABE3";
+  ctx.fillStyle = "#BFF0E6";
   ctx.fillRect(0, 0, w, h);
-  ctx.fillStyle = "#F9D199";
+  ctx.fillStyle = "rgb(9, 144, 144)";
   ctx.font = "50px game over";
   ctx.fillText("GAME OVER", 200, 250);
   gameOn = false;
