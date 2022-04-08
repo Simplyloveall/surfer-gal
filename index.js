@@ -2,7 +2,7 @@ const splash = document.querySelector(".splash");
 document.addEventListener("DOMContentLoaded", (e) => {
   setTimeout(() => {
     splash.classList.add("display-none");
-  }, 5000);
+  }, 7000);
 });
 
 let time = 1000;
@@ -33,6 +33,13 @@ ctx.fillStyle = "white";
 ctx.fillText("move with arrow keys", 250, 50);
 ctx.fillText("avoid contact with boats", 250, 100);
 ctx.fillText("definitely avoid sharks", 250, 150);
+
+let collectSound = new Audio("images/collect_points.wav");
+collectSound.volume = 0.1;
+let hitBoatSound = new Audio("images/hit_boat.wav");
+hitBoatSound.volume = 0.2;
+let gameOverSound = new Audio("images/game_over.wav");
+gameOverSound.volume = 0.5;
 
 class Player {
   constructor() {
@@ -75,7 +82,7 @@ class Object {
   constructor(img) {
     this.w = 30;
     this.h = 30;
-    this.x = Math.random() * w - this.w;
+    this.x = Math.random() * (w - 125) + 45;
     this.y = 0;
     this.img = img;
   }
@@ -83,9 +90,9 @@ class Object {
 
 class Shark {
   constructor(img) {
-    this.w = 120;
-    this.h = 120;
-    this.x = Math.random() * w - this.w;
+    this.w = 100;
+    this.h = 100;
+    this.x = Math.random() * (w - 125) + 185;
     this.y = 0;
     this.img = img;
   }
@@ -234,6 +241,9 @@ function updateCanvas() {
     obstacleArr[i].y += 2;
     let didCollide = detectCollision(player1, obstacleArr[i]);
     if (didCollide) {
+      collectSound.pause();
+      collectSound.currentTime = 0;
+      collectSound.play();
       player1.score += 10;
       obstacleArr.splice(i, 1);
     }
@@ -250,6 +260,7 @@ function updateCanvas() {
     boatArr[i].x += 3;
     let didCollide = detectCollision(player1, boatArr[i]);
     if (didCollide) {
+      hitBoatSound.play();
       player1.score -= 20;
       boatArr.splice(i, 1);
     }
@@ -277,7 +288,7 @@ function updateCanvas() {
     sharkArr[i].y += 1;
     let didCollide = detectCollision(player1, sharkArr[i]);
     if (didCollide) {
-      player1.score++;
+      gameOverSound.play();
       sharkArr.splice(i, 1);
       gameOver();
     }
@@ -296,7 +307,7 @@ function gameOver() {
   ctx.fillStyle = "#64ABE3";
   ctx.fillRect(0, 0, w, h);
   ctx.fillStyle = "#F9D199";
-  ctx.font = "50px sans-serif";
+  ctx.font = "50px game over";
   ctx.fillText("GAME OVER", 200, 250);
   gameOn = false;
 }

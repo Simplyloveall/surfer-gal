@@ -23,7 +23,7 @@ h1 {
   height: 100vh;
   background: rgb(54, 38, 38);
   z-index: 200;
-  color:rgb(60, 240, 240);
+  color: rgb(60, 240, 240);
   text-align: center;
 }
 
@@ -36,7 +36,7 @@ h1 {
   height: 100vh;
   background: rgb(54, 38, 38);
   z-index: -10;
-  color:rgb(60, 240, 240);
+  color: rgb(60, 240, 240);
   text-align: center;
   transition: all 0.5s;
 }
@@ -58,7 +58,6 @@ h1 {
 
 .top-section {
   background: floralwhite;
-
 }
 
 .top-section h1 {
@@ -66,7 +65,7 @@ h1 {
   line-height: 10vh;
 }
 
-.splash p{
+.splash p {
   color: azure;
   font-size: larger;
   /* font-weight: ; */
@@ -82,7 +81,7 @@ h1 {
 #play-area {
   z-index: 1;
   position: fixed;
-  background-image: url('waves.jpg');
+  background-image: url("waves.jpg");
 }
 #ocean {
   z-index: -1;
@@ -120,5 +119,3 @@ h1 {
   display: table;
   clear: both;
 }
-
-
