@@ -2,21 +2,14 @@ const splash = document.querySelector(".splash");
 document.addEventListener("DOMContentLoaded", (e) => {
   setTimeout(() => {
     splash.classList.add("display-none");
-  }, 7000);
+  }, 1000);
 });
+let animation;
+let gameOn = false;
 
-let time = 1000;
-let countDown = setInterval(timer, 1000);
-
-function timer() {
-  time -= 20;
-  if (time === 0) {
-    gameOver();
-    ctx.font = "20px goudy stout";
-    ctx.fillText(`Score = ${player1.score}`, 80, 30);
-    // altGameOverSound.play();
-  }
-}
+let int1;
+let int2;
+let int3;
 
 const canvas = document.getElementById("play-area");
 canvas.addEventListener("click", startGame);
@@ -43,8 +36,21 @@ let hitBoatSound = new Audio("images/hit_boat.wav");
 hitBoatSound.volume = 0.2;
 let gameOverSound = new Audio("images/game_over.wav");
 gameOverSound.volume = 0.5;
-// let altGameOverSound = new Audio("images/start-game.wav");
-// altgameOverSound.volume = 0.5;
+let altGameOverSound = new Audio("images/start-game.wav");
+altGameOverSound.volume = 0.5;
+
+let time = 1000;
+let countDown = setInterval(timer, 1000);
+
+function timer() {
+  time -= 20;
+  if (time === 0) {
+    gameOver();
+    ctx.font = "20px goudy stout";
+    ctx.fillText(`Score = ${player1.score}`, 80, 30);
+    altGameOverSound.play();
+  }
+}
 
 class Player {
   constructor() {
@@ -95,9 +101,9 @@ class Object {
 
 class Shark {
   constructor(img) {
-    this.w = 100;
-    this.h = 100;
-    this.x = Math.random() * (w - 125) + 185;
+    this.w = 90;
+    this.h = 90;
+    this.x = Math.random() * (w - 175) + 45;
     this.y = 0;
     this.img = img;
   }
@@ -105,7 +111,7 @@ class Shark {
 
 class Boat {
   constructor(img) {
-    this.x = 0;
+    this.x = 45;
     this.y = 150;
     this.w = 100;
     this.h = 100;
@@ -199,12 +205,6 @@ document.addEventListener("keyup", (e) => {
   player1.speedx = 0;
   player1.speedy = 0;
 });
-let animation;
-let gameOn = false;
-
-let int1;
-let int2;
-let int3;
 
 function startGame() {
   if (gameOn === false) {
@@ -261,7 +261,6 @@ function updateCanvas() {
       boatArr[i].w,
       boatArr[i].h
     );
-
     boatArr[i].x += 3;
     let didCollide = detectCollision(player1, boatArr[i]);
     if (didCollide) {
